@@ -6,6 +6,8 @@ from __future__ import annotations
 
 import logging
 
+import requests
+
 from trading_bot.bot.client import BinanceAPIError, BinanceClient
 from trading_bot.bot.validators import validate_all
 
@@ -94,6 +96,10 @@ def place_order(
             quantity=params["quantity"],
             price=params["price"],
         )
+    except requests.RequestException as exc:
+        logger.error("Order failed | network error: %s", exc)
+        print(f"\n❌  Order FAILED — network/API connectivity error: {exc}\n")
+        raise
     except BinanceAPIError as exc:
         logger.error("Order failed | %s", exc)
         print(f"\n❌  Order FAILED — Binance API error {exc.code}: {exc.message}\n")

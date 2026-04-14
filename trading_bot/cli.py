@@ -83,15 +83,14 @@ Environment variables (alternative to --api-key / --api-secret):
     order_group.add_argument(
         "--side",
         required=True,
-        choices=["BUY", "SELL"],
         metavar="SIDE",
         help="Order side: BUY or SELL.",
     )
     order_group.add_argument(
         "--type",
+        "--order-type",
         dest="order_type",
         required=True,
-        choices=["MARKET", "LIMIT"],
         metavar="TYPE",
         help="Order type: MARKET or LIMIT.",
     )

@@ -28,7 +28,8 @@ def setup_logging(log_level: str = "INFO") -> logging.Logger:
     numeric_level = getattr(logging, log_level.upper(), logging.INFO)
 
     logger = logging.getLogger("trading_bot")
-    logger.setLevel(numeric_level)
+    # Keep root logger at DEBUG so file handler can always capture API request/response details.
+    logger.setLevel(logging.DEBUG)
 
     # Avoid duplicate handlers when called multiple times
     if logger.handlers:

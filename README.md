@@ -66,11 +66,27 @@ pip install -r requirements.txt
 
 ### 5. Configure credentials
 
-**Option A — environment variables (recommended)**
+**Option A - environment variables (recommended)**
+
+Linux/macOS:
 
 ```bash
 export BINANCE_API_KEY="your_api_key_here"
 export BINANCE_API_SECRET="your_api_secret_here"
+```
+
+Windows PowerShell:
+
+```powershell
+$env:BINANCE_API_KEY="your_api_key_here"
+$env:BINANCE_API_SECRET="your_api_secret_here"
+```
+
+Windows CMD:
+
+```cmd
+set BINANCE_API_KEY=your_api_key_here
+set BINANCE_API_SECRET=your_api_secret_here
 ```
 
 **Option B — pass directly on the command line**
@@ -85,17 +101,27 @@ python -m trading_bot.cli --api-key KEY --api-secret SECRET ...
 
 ## How to Run
 
+Run commands from the repository root directory (`tradeBotBinace`).
+
 ### General syntax
 
 ```bash
 python -m trading_bot.cli \
-  --symbol  SYMBOL   \   # e.g. BTCUSDT
-  --side    SIDE     \   # BUY or SELL
-  --type    TYPE     \   # MARKET or LIMIT
-  --quantity QTY     \   # positive number
-  [--price  PRICE]   \   # required for LIMIT orders
-  [--log-level LEVEL]    # DEBUG | INFO (default) | WARNING | ERROR
+  --symbol SYMBOL \
+  --side SIDE \
+  --type TYPE \
+  --quantity QTY \
+  [--price PRICE] \
+  [--log-level LEVEL]
 ```
+
+Parameter notes:
+- `--symbol`: e.g. `BTCUSDT`
+- `--side`: `BUY` or `SELL`
+- `--type`: `MARKET` or `LIMIT` (alias: `--order-type`)
+- `--quantity`: positive number
+- `--price`: required for `LIMIT`, ignored for `MARKET`
+- `--log-level`: `DEBUG`, `INFO` (default), `WARNING`, `ERROR`
 
 ### Example — Market BUY order
 
@@ -217,6 +243,17 @@ Sample log files are included in the `logs/` directory:
 | Missing price for LIMIT order | Validation error printed, exit code 1 |
 | Binance API error (e.g. -1121) | Error code + message printed, exit code 2 |
 | Network failure / timeout | Exception logged and printed, exit code 3 |
+
+## Troubleshooting
+
+- Error `-2015` (`Invalid API-key, IP, or permissions for action`):
+  - Make sure keys were created on Binance Futures Testnet: https://testnet.binancefuture.com
+  - Verify API key permissions allow Futures trading actions on testnet
+  - If IP restriction is enabled, add your current public IP or disable restriction for testing
+  - Regenerate a fresh testnet key pair and retry
+- Error `ModuleNotFoundError: No module named 'trading_bot'`:
+  - Run commands from the repository root folder (`tradeBotBinace`)
+  - Example: `cd tradeBotBinace` then run `python -m trading_bot.cli ...`
 
 ---
 

@@ -98,7 +98,11 @@ class BinanceClient:
 
         url = BASE_URL + path
 
-        logger.debug("API request  → %s %s | params: %s", method, url, params)
+        log_params = dict(params)
+        if "signature" in log_params:
+            log_params["signature"] = "***"
+
+        logger.debug("API request  → %s %s | params: %s", method, url, log_params)
 
         try:
             if method.upper() in ("GET", "DELETE"):
@@ -184,6 +188,8 @@ class BinanceClient:
             "type": order_type,
             "quantity": quantity,
         }
+
+        params["newOrderRespType"] = "RESULT"
 
         if order_type == "LIMIT":
             if price is None:
