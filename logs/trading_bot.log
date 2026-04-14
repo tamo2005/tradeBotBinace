@@ -1,0 +1,33 @@
+2026-04-14 20:54:43 | DEBUG    | trading_bot | Parsed CLI arguments: {'api_key': None, 'api_secret': None, 'symbol': 'BTCUSDT', 'side': 'BUY', 'order_type': 'MARKET', 'quantity': '0.001', 'price': None, 'log_level': 'INFO'}
+2026-04-14 20:56:48 | DEBUG    | trading_bot | Parsed CLI arguments: {'api_key': 'AkNNKq2q8x7YktWQVqhiEyxT2wQo5ZGFEHDmcLPTIKoXOEiqX4Fq9uPPNyWzEQAX', 'api_secret': 'wW4cLdJLfyU9hzGumzh04NkBf3npLZO3FppfvitAy15KPadMkEE4eLbj8AwSNEjz', 'symbol': 'BTCUSDT', 'side': 'BUY', 'order_type': 'MARKET', 'quantity': '0.001', 'price': None, 'log_level': 'INFO'}
+2026-04-14 20:56:48 | INFO     | trading_bot.orders | Order summary:
+=======================================================
+  ORDER REQUEST SUMMARY
+=======================================================
+  Symbol     : BTCUSDT
+  Side       : BUY
+  Type       : MARKET
+  Quantity   : 0.001
+=======================================================
+2026-04-14 20:56:48 | INFO     | trading_bot.client | Placing BUY MARKET order | symbol=BTCUSDT | qty=0.001 | price=MARKET
+2026-04-14 20:56:48 | DEBUG    | trading_bot.client | API request  → POST https://testnet.binancefuture.com/fapi/v1/order | params: {'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': 0.001, 'newOrderRespType': 'RESULT', 'timestamp': 1776180408694, 'recvWindow': 5000, 'signature': '***'}
+2026-04-14 20:56:50 | DEBUG    | trading_bot.client | API response ← POST https://testnet.binancefuture.com/fapi/v1/order | status: 401 | body: {"code":-2015,"msg":"Invalid API-key, IP, or permissions for action"}
+2026-04-14 20:56:50 | ERROR    | trading_bot.client | Binance API error | code=-2015 | msg=Invalid API-key, IP, or permissions for action
+2026-04-14 20:56:50 | ERROR    | trading_bot.orders | Order failed | Binance API error -2015: Invalid API-key, IP, or permissions for action
+2026-04-14 20:56:50 | ERROR    | trading_bot | Order failed: Binance API error -2015: Invalid API-key, IP, or permissions for action
+2026-04-14 20:57:54 | DEBUG    | trading_bot | Parsed CLI arguments: {'api_key': 'dummy', 'api_secret': 'dummy', 'symbol': 'BTCUSDT', 'side': 'BUY', 'order_type': 'MARKET', 'quantity': '0.001', 'price': None, 'log_level': 'INFO'}
+2026-04-14 20:57:54 | INFO     | trading_bot.orders | Order summary:
+=======================================================
+  ORDER REQUEST SUMMARY
+=======================================================
+  Symbol     : BTCUSDT
+  Side       : BUY
+  Type       : MARKET
+  Quantity   : 0.001
+=======================================================
+2026-04-14 20:57:54 | INFO     | trading_bot.client | Placing BUY MARKET order | symbol=BTCUSDT | qty=0.001 | price=MARKET
+2026-04-14 20:57:54 | DEBUG    | trading_bot.client | API request  → POST https://testnet.binancefuture.com/fapi/v1/order | params: {'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': 0.001, 'newOrderRespType': 'RESULT', 'timestamp': 1776180474693, 'recvWindow': 5000, 'signature': '***'}
+2026-04-14 20:57:55 | DEBUG    | trading_bot.client | API response ← POST https://testnet.binancefuture.com/fapi/v1/order | status: 401 | body: {"code":-2014,"msg":"API-key format invalid."}
+2026-04-14 20:57:55 | ERROR    | trading_bot.client | Binance API error | code=-2014 | msg=API-key format invalid.
+2026-04-14 20:57:55 | ERROR    | trading_bot.orders | Order failed | Binance API error -2014: API-key format invalid.
+2026-04-14 20:57:55 | ERROR    | trading_bot | Order failed: Binance API error -2014: API-key format invalid.
