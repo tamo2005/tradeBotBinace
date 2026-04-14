@@ -1,0 +1,2 @@
+2026-04-14 09:25:03 INFO trading_bot - Request: POST https://testnet.binancefuture.com/fapi/v1/order params={'symbol': 'BTCUSDT', 'side': 'SELL', 'type': 'LIMIT', 'quantity': '0.001', 'price': '70000', 'timeInForce': 'GTC', 'newOrderRespType': 'RESULT', 'recvWindow': 5000, 'timestamp': 1776145503000, 'signature': '***'}
+2026-04-14 09:25:04 INFO trading_bot - Response: status=200 body={"orderId": 987654321, "status": "NEW", "executedQty": "0", "avgPrice": "0"}
