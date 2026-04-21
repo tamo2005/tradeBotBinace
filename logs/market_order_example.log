@@ -1,0 +1,2 @@
+2026-04-14 09:22:10 INFO trading_bot - Request: POST https://testnet.binancefuture.com/fapi/v1/order params={'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': '0.001', 'newOrderRespType': 'RESULT', 'recvWindow': 5000, 'timestamp': 1776145330000, 'signature': '***'}
+2026-04-14 09:22:11 INFO trading_bot - Response: status=200 body={"orderId": 123456789, "status": "FILLED", "executedQty": "0.001", "avgPrice": "65000.0"}
